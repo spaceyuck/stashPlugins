@@ -1,6 +1,7 @@
 name: Public IP
 description: Query ident.me to check my current IP (ensure VPN is working)
-version: 0.2
+url: https://github.com/S3L3CT3DLoves/stashPlugins
+version: 1.0
 exec:
   - python
   - "{pluginDir}/myIp.py"
