@@ -12,7 +12,6 @@ class StashGraphQL{
           }
           
           fragment SceneData on Scene {
-            rating100
             tags {
               ...SlimTagData
               __typename
@@ -145,8 +144,7 @@ class StashGraphQL{
             variables :{
                 input : {
                     id : this.sceneData.id,
-                    tag_ids : [...newTagIds],
-                    rating100 : this.sceneData.rating100
+                    tag_ids : [...newTagIds]
                 }
             }
         }
@@ -165,10 +163,10 @@ class StashGraphQL{
         let newTagIds = new Set(this.sceneData.tags.map((tag) => parseInt(tag.id)))
         
         for (const tagId of addTags) {
-            newTagIds.add(tagId)
+            newTagIds.add(Number(tagId))
         }
         for (const tagId of removeTags) {
-            newTagIds.delete(tagId)
+            newTagIds.delete(Number(tagId))
         }
 
         const queryBody = {
@@ -177,8 +175,7 @@ class StashGraphQL{
             variables :{
                 input : {
                     id : this.sceneData.id,
-                    tag_ids : [...newTagIds],
-                    rating100 : this.sceneData.rating100
+                    tag_ids : [...newTagIds]
                 }
             }
         }
