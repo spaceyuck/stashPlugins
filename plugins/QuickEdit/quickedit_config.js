@@ -210,8 +210,9 @@ class ButtonsConfigUI{
                 var reader = new FileReader()
                 reader.readAsText(file,'UTF-8')
                 reader.onload = readerEvent => {
-                    this.buttonsConfig.loadConfigFromFile(readerEvent.target.result)
-                    window.location.reload()
+                    this.buttonsConfig.loadConfigFromFile(readerEvent.target.result).then(() => {
+                        window.location.reload();
+                    });
                 }
             }
             input.click()
