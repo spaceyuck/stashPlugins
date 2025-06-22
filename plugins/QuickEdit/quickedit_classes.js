@@ -38,12 +38,12 @@ class TagConfiguration{
         this.stashSortName = stashTagData.sort_name;
     }
 
-    getDisplayName(){
+    getDisplayName() {
         return this.name != "" ? this.name : this.stashName
     }
 
-    getSortName(){
-        return this.name != "" ? this.name : (this.stashSortName != '' ? this.stashSortName : this.stashName)
+    getSortName() {
+        return (this.stashSortName ? this.stashSortName : '') + this.getDisplayName();
     }
 }
 
